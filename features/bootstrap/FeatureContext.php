@@ -21,4 +21,12 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function __construct() {
   }
 
+  /**
+   * @Then I take a screenshot :filename
+   */
+  public function iTakeAScreenshot($filename)
+  {
+    $this->saveScreenshot($filename, '/tmp');
+  }
+
 }
