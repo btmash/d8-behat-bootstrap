@@ -29,4 +29,19 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     $this->saveScreenshot($filename, '/tmp');
   }
 
+  /**
+   * @Given I clear the page cache
+   */
+  public function iClearThePageCache() {
+    $cache = \Drupal::cache('page');
+    $cache->deleteAll();
+  }
+
+  /**
+   * @Then I clear the watchdog logs
+   */
+  public function iClearTheWatchdogLogs() {
+    db_truncate('watchdog');
+  }
+
 }
